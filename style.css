@@ -292,13 +292,12 @@ main {
 
 /* Activities card */
 .card.activity {
-	grid-row: 1;
+	grid-row: auto;
 }
 
 .card-top.activity {
 	grid-column: 1;
 	grid-row: 1 / span 3;
-	background-color: white;
 	position: relative;
 	z-index: -1;
 	overflow: hidden;
@@ -306,8 +305,9 @@ main {
 
 .card-top.activity > img {
 	position: absolute;
+	width: 70px;
 	right: 10%;
-	top: -10%;
+	top: -5%;
 }
 
 .card-bottom.activity {
