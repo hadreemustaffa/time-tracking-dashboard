@@ -18,6 +18,8 @@
 
 	--fs-primary-heading: var(--fs-xl);
 	--fs-secondary-heading: var(--fs-lg);
+	--fs-primary-body: var(--fs-md);
+	--fs-secondary-body: var(--fs-sm);
 
 	/* color variables */
 	--clr-primary-1: hsl(246, 80%, 60%);
@@ -145,22 +147,28 @@ h6 {
 .bg-primary-1 {
 	background-color: var(--clr-primary-1);
 }
-.bg-primary-2 {
+.bg-primary-2,
+.work {
 	background-color: var(--clr-primary-2);
 }
-.bg-primary-3 {
+.bg-primary-3,
+.play {
 	background-color: var(--clr-primary-3);
 }
-.bg-primary-4 {
+.bg-primary-4,
+.study {
 	background-color: var(--clr-primary-4);
 }
-.bg-primary-5 {
+.bg-primary-5,
+.exercise {
 	background-color: var(--clr-primary-5);
 }
-.bg-primary-6 {
+.bg-primary-6,
+.social {
 	background-color: var(--clr-primary-6);
 }
-.bg-primary-7 {
+.bg-primary-7,
+.self {
 	background-color: var(--clr-primary-7);
 }
 .bg-neutral-1 {
@@ -192,6 +200,12 @@ h6 {
 .fs-secondary-heading {
 	font-size: var(--fs-secondary-heading);
 }
+.fs-primary-body {
+	font-size: var(--fs-primary-body);
+}
+.fs-secondary-body {
+	font-size: var(--fs-secondary-body);
+}
 
 /* General styling */
 
@@ -208,7 +222,7 @@ body {
 	display: grid;
 	place-content: center;
 	font-family: var(--ff-body);
-	font-size: var(--fs-regular);
+	font-size: var(--fs-primary-body);
 	font-weight: var(--fw-regular);
 	color: var(--clr-neutral-4);
 	background-color: var(--clr-neutral-1);
@@ -216,11 +230,12 @@ body {
 
 main {
 	width: 77.2vw;
-	height: 60vh;
+	max-width: 1482px;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr;
 	gap: 2.25rem;
+	margin: 4rem 0;
 }
 
 .card {
@@ -238,61 +253,62 @@ main {
 }
 
 /* User card */
-.card.user {
-	grid-row: 1 / span 2;
-}
-
 .card-top.user {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--clr-primary-1);
-	padding: 2.5rem 4rem 4rem 2rem;
+	padding: 2.5rem 5.5rem 4rem 2rem;
 	z-index: 0;
 	grid-column: 1;
-	grid-row: 1 / span 4;
+	grid-row: 1 / span 3;
+}
+.card-top.user > h1 {
+	line-height: 1.2;
 }
 .card-top.user > img {
 	width: 86px;
 	height: 86px;
 	border: 2px solid var(--clr-neutral-5);
 	border-radius: 50%;
-}
-.card-top.user > p {
-	padding-top: 2.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .card-bottom.user {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	padding: 4.25rem 2rem 2rem;
 	gap: 1rem;
-	align-items: start;
 	grid-column: 1;
-	grid-row: 4 / span 2;
+	grid-row: 3 / span 3;
 }
 .card-bottom.user button {
+	color: var(--clr-neutral-3);
 	background: none;
-	color: var(--clr-neutral-4);
 	border: none;
 	outline: none;
 }
-.card-bottom.user button:hover,
-.card-bottom.user button:active {
+.card-bottom.user button:hover {
 	color: var(--clr-neutral-5);
 	cursor: pointer;
 }
 .card-bottom.user button:active {
 	transform: scale(0.98);
 }
-.time-period {
+.timeframe {
 	text-align: left;
 	width: 100%;
 }
 
 /* Activities card */
+.cards-container {
+	grid-area: 1 / 2 / 2 / 5;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	gap: 2.25rem;
+}
 .card.activity {
-	grid-row: auto;
+	grid-auto-flow: column;
 }
 
 .card-top.activity {
@@ -350,4 +366,93 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
+}
+
+/* Active */
+.active {
+	color: var(--clr-neutral-5) !important;
+}
+
+@media screen and (max-width: 599px) {
+	:root {
+		--fs-xl: 2.375rem;
+		--fs-lg: 1.875rem;
+	}
+
+	main {
+		width: 90vw;
+		display: flex;
+		flex-direction: column;
+	}
+	.card-top.user {
+		flex-direction: row;
+		align-items: center;
+		padding: 1.5rem;
+		gap: 1.5rem;
+	}
+	.card-top.user img {
+		margin-bottom: 0;
+	}
+	.card-bottom.user {
+		padding: 4rem 1rem 1.25rem;
+		flex-direction: row;
+	}
+	.timeframe {
+		text-align: center;
+	}
+	.cards-container {
+		grid-template-columns: 1fr;
+	}
+	.time-spent {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+	.card-top.user {
+		align-items: center;
+		padding: 2rem;
+	}
+	.text-container {
+		text-align: center;
+	}
+	.card-bottom.user {
+		padding: 4rem 2rem 1.25rem;
+		flex-direction: row;
+	}
+	.timeframe {
+		text-align: center;
+	}
+
+	.cards-container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+	main {
+		display: flex;
+		flex-direction: column;
+		max-width: 772px;
+	}
+	.card-top.user {
+		align-items: center;
+		padding: 2rem;
+	}
+	.text-container {
+		text-align: center;
+	}
+	.card-bottom.user {
+		padding: 4rem 2rem 1.25rem;
+		flex-direction: row;
+	}
+	.timeframe {
+		text-align: center;
+	}
 }
