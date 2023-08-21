@@ -27,7 +27,7 @@ async function renderCards() {
         </div>
         <div class="time-spent">
           <h1 class="text-neutral-5"><span class="current"></span>hrs</h1>
-          <p><span class="selected-timeframe fs-secondary-body"></span> - <span class="previous"></span>hrs</p>
+          <p><span class="selected-timeframe"></span> - <span class="previous"></span>hrs</p>
         </div>
       </div>
     </div>`;

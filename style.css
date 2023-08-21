@@ -375,8 +375,9 @@ main {
 
 @media screen and (max-width: 599px) {
 	:root {
-		--fs-xl: 2.375rem;
-		--fs-lg: 1.875rem;
+		--fs-xl: 1.75rem;
+		--fs-lg: 1.25rem;
+		--fs-md: 0.75rem;
 	}
 
 	main {
